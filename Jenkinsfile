@@ -9,32 +9,35 @@ pipeline {
         stage('Cloning our Git') { 
             steps { 
                 git 'https://github.com/himanshunikhare/flask-docker-jenkins-connectivity.git' 
+                echo "Cloned"
+
             }
         } 
-        echo "Cloned"
         stage('Building our image') { 
             steps { 
                 script { 
                     dockerImage = docker.build registry + ":$BUILD_NUMBER" 
                 }
+                echo "Image Build"
             } 
         }
-        echo "Image Build"
         stage('Deploy our image') { 
             steps { 
                 script { 
                     docker.withRegistry( '', registryCredential ) { 
                         dockerImage.push() 
                     }
+                echo "Image Deployed"
                 } 
             }
         } 
-        echo "Image Deployed"
+        
         stage('Cleaning up') { 
             steps { 
                 sh "docker rmi $registry:$BUILD_NUMBER" 
+                echo "Cleanup complete"
             }
         } 
-        echo "Cleanup complete"
+        
     }
 }
