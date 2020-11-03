@@ -44,9 +44,9 @@ In my case being an arch user, i followed [this article](https://computingforgee
 	- 
 	Ngrok exposes local servers behind NATs and firewalls to the public internet over secure tunnels.
 
-	```mermaid
-	graph LR
-	A(Download Ngrok)
-	A --> C(Connect your service)
-	C --> D(Access from anywhere)
-	```
+```mermaid
+graph LR
+A(Download Ngrok)
+A --> C(Connect your service)
+C --> D(Access from anywhere)
+```
