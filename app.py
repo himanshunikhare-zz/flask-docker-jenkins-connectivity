@@ -17,7 +17,7 @@ class BlogPost(db.Model):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return redirect('/posts')
 
 @app.route('/posts', methods=['GET', 'POST'])
 def posts():
@@ -58,4 +58,4 @@ def edit(id):
         return render_template('edit.html', post = post)
 
 if __name__ == "__main__":
-    app.run(debug = True)
+    app.run(debug=True, host='0.0.0.0')
