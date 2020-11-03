@@ -21,6 +21,11 @@ pipeline {
                 echo "Image Build"
             } 
         }
+        stage('test') {
+            steps {
+                sh 'python test.py'
+            }
+        }
         stage('Deploy our image') { 
             steps { 
                 script { 
