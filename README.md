@@ -21,6 +21,7 @@ A very simple blog application in flask build over docker to show its connectivi
 
 ## Install jenkins
 using [this official](https://www.jenkins.io/doc/book/installing/) documentation
+in my case being an arch user, i followed [this article](https://computingforgeeks.com/how-to-install-and-configure-jenkins-on-arch-linux/) to install and run jenkins
 
 
 # Technology used:
