@@ -11,6 +11,7 @@ pipeline {
                 git 'https://github.com/himanshunikhare/flask-docker-jenkins-connectivity.git' 
             }
         } 
+        echo "Cloned"
         stage('Building our image') { 
             steps { 
                 script { 
@@ -18,6 +19,7 @@ pipeline {
                 }
             } 
         }
+        echo "Image Build"
         stage('Deploy our image') { 
             steps { 
                 script { 
@@ -27,10 +29,12 @@ pipeline {
                 } 
             }
         } 
+        echo "Image Deployed"
         stage('Cleaning up') { 
             steps { 
                 sh "docker rmi $registry:$BUILD_NUMBER" 
             }
         } 
+        echo "Cleanup complete"
     }
 }
