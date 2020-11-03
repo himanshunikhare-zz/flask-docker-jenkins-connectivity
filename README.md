@@ -35,9 +35,16 @@ Open your favourite browser and paste the below link:
 	```
 	ngrok http 8090
 	```
-- Create a github webhook
+- Setting up github webhook
 	- 
+	Go inside
 
+	> Settings > Webhooks
+	
+	Write
+	> Payload: xyz.ngrok.io/github-webhook/
+	> Content type: application/json
+	 **Save**
 
 # Technology used:
 
