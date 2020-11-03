@@ -20,8 +20,9 @@ A very simple blog application in flask build over docker to show its connectivi
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[http://127.0.0.1:5000/](http://127.0.0.1:5000/)
 
 ## Install jenkins
-using [this official](https://www.jenkins.io/doc/book/installing/) documentation
-in my case being an arch user, i followed [this article](https://computingforgeeks.com/how-to-install-and-configure-jenkins-on-arch-linux/) to install and run jenkins
+using [this official](https://www.jenkins.io/doc/book/installing/) documentation.
+
+In my case being an arch user, i followed [this article](https://computingforgeeks.com/how-to-install-and-configure-jenkins-on-arch-linux/) to install and run jenkins
 
 
 # Technology used:
@@ -39,3 +40,13 @@ in my case being an arch user, i followed [this article](https://computingforgee
 	 - 
 	 Jenkins_ – an open source automation server which enables developers around the world to reliably build, test, and deploy their software.
 	 
+- Ngrok
+	- 
+	Ngrok exposes local servers behind NATs and firewalls to the public internet over secure tunnels.
+
+	```mermaid
+	graph LR
+	A(Download Ngrok)
+	A --> C(Connect your service)
+	C --> D(Access from anywhere)
+	```
