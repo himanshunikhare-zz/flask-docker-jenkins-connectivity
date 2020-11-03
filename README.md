@@ -2,27 +2,41 @@
 
 A very simple blog application in flask build over docker to show its connectivity with jenkins
 
+Clone this project using the command:
+```
+    git clone https://github.com/himanshunikhare/flask-docker-jenkins-connectivity.git
+```
 # How to run
-- Clone this project using the command:
-	```
-	    git clone https://github.com/himanshunikhare/flask-docker-jenkins-connectivity.git
-	```
 
-- Build image from **dockerfile**
-	```
-	    docker build -t my_docker_flask:latest .
-	```
-- Run  docker **image** build using above command
-	```
-	    docker run -d -p 5000:5000 my_docker_flask:latest
-	```
-- Open your favourite browser and paste the below link:
+
+Build image from **dockerfile**
+```
+    docker build -t my_docker_flask:latest .
+```
+Run  docker **image** build using above command
+```
+    docker run -d -p 5000:5000 my_docker_flask:latest
+```
+Open your favourite browser and paste the below link:
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[http://127.0.0.1:5000/](http://127.0.0.1:5000/)
+# Creating and CI/CD pipeline
 
-## Install jenkins
-using [this official](https://www.jenkins.io/doc/book/installing/) documentation.
+- Install and run jenkins in localhost
+	- 
+	using [this official](https://www.jenkins.io/doc/book/installing/) documentation.
 
-In my case being an arch user, i followed [this article](https://computingforgeeks.com/how-to-install-and-configure-jenkins-on-arch-linux/) to install and run jenkins
+		In my case being an arch user, i followed [this article](https://computingforgeeks.com/how-to-install-and-configure-jenkins-on-arch-linux/) to install and run jenkins
+
+- Expose your localhost using [ngrok](https://ngrok.com/docs)
+	- 
+
+	Download [ngrok](https://ngrok.com/) and run:
+	
+	```
+	ngrok http 8090
+	```
+- Create a github webhook
+	- 
 
 
 # Technology used:
@@ -43,10 +57,3 @@ In my case being an arch user, i followed [this article](https://computingforgee
 - Ngrok
 	- 
 	Ngrok exposes local servers behind NATs and firewalls to the public internet over secure tunnels.
-
-```mermaid
-graph LR
-A(Download Ngrok)
-A --> C(Connect your service)
-C --> D(Access from anywhere)
-```
