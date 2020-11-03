@@ -1,6 +1,6 @@
 pipeline { 
     environment { 
-        registry = "https://hub.docker.com/repository/docker/himanshunikhare/flask-jenkins-docker-cicd" 
+        registry = "flask-jenkins-docker-cicd" 
         registryCredential = 'dockerhub_id' 
         dockerImage = '' 
     }
