@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title> Posts </title>
+{% endblock %}
+
+
+
+{% block body %}
+
+<div class="jumbotron">
+    <div class="container">
+        <hr>
+        <h2>Edit Your Post:</h2>
+        <form action="/posts/edit/{{post.id}}" method="POST" id="usrform">
+            <h3>Title:</h3><br> <input type="text" name="title" id="title" value={{post.title}}>
+            <br>
+            <h3>Post:</h3><br>
+            <textarea name="content" id="content" form="usrform" rows="4" cols="50">{{ post.content }}</textarea>
+            
+            <br>
+            <input class="btn btn-primary btn-lg" type="submit" value="Submit">
+        </form>
+        <hr>
+    </div>
+</div>
+
+{% endblock %}

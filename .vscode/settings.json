@@ -1,0 +1,12 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "test",
+            "group": "test",
+            "database": "${workspaceFolder:flask-docker-jenkins-connectivity}/posts.db"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}

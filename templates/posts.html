@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title> Posts </title>
+{% endblock %}
+
+
+
+{% block body %}
+
+<div class="jumbotron">
+    <div class="container">
+        <hr>
+        <h1>Create New Post:</h1>
+        <form action="/posts" method="POST" id="usrform">
+            <h3>Title:</h3><br> <input type="text" name="title" id="title">
+            <br>
+            <h3>Post:</h3><br>
+            <textarea name="content" id="content" form="usrform" rows="4" cols="50"></textarea>
+            <br>
+            <input class="btn btn-primary btn-lg" type="submit" value="Post">
+        </form>
+        <hr>
+    </div>
+</div>
+{% if posts %}
+
+<div class="container" id="all-posts">
+    <h1>All Post</h1>
+    <!-- Example row of columns -->
+    <div class="row">
+        {% for post in posts %}
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+        <a class="btn btn-default" href='posts/delete/{{post.id}}'>Delete</a>
+        <a class="btn btn-default" href='posts/edit/{{post.id}}'>Edit</a>
+        <hr>
+        {% endfor %}
+    <hr>
+</div>
+{% endif %}
+
+    <footer>
+      <p>© Himanshu Nikhare</p>
+    </footer>
+  </div>
+
+{% endblock %}
