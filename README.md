@@ -25,8 +25,11 @@ Open your favourite browser and paste the below link:
 	- 
 	using [this official](https://www.jenkins.io/doc/book/installing/) documentation.
 
-		In my case being an arch user, i followed [this article](https://computingforgeeks.com/how-to-install-and-configure-jenkins-on-arch-linux/) to install and run jenkins
+	In my case being an arch user, i followed [this article](https://computingforgeeks.com/how-to-install-and-configure-jenkins-on-arch-linux/) to install and run jenkins
+		
+	
 
+	> Make sure to install docker and github plugin is installed.
 - Expose your localhost using [ngrok](https://ngrok.com/docs)
 	- 
 
@@ -45,6 +48,24 @@ Open your favourite browser and paste the below link:
 	> Payload: xyz.ngrok.io/github-webhook/
 	> Content type: application/json
 	 **Save**
+ - Setup jenking pipeline
+	 - 
+	>	 Make sure that you change  the registry name and git url from Jenkinsfile in my repo
+	
+	- Open Jenkins using *xyz3024d.ngrok.io* 
+	- Goto Manage Jenkins > Manage Credentials 
+		- Click on Add credentials
+			- Enter your Dockerhub Username and Password
+			- Give ID as:  **dockerhub_id** (specified in Jenkinsfile)
+			- Give some description and Save
+			
+	- Click on **New Item**
+	- Enter Item Name and Select **Pipeline**
+		- Select GitHub hook trigger for GITScm polling
+		- In Pipeline tab select *Pipeline script from SCM*
+		- Enter repository URL 
+		- Write Jenkinsfile  (or the name of your jenkinsfile)
+	- Save and Apply
 
 # Technology used:
 

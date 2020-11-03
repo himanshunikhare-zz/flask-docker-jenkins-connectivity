@@ -1,6 +1,6 @@
 pipeline { 
     environment { 
-        registry = "https://hub.docker.com/repository/docker/himanshunikhare/flask-jenkins-docker-cicd" 
+        registry = "himanshunikhare/flask-jenkins-docker-cicd" 
         registryCredential = 'dockerhub_id' 
         dockerImage = '' 
     }
@@ -9,6 +9,8 @@ pipeline {
         stage('Cloning our Git') { 
             steps { 
                 git 'https://github.com/himanshunikhare/flask-docker-jenkins-connectivity.git' 
+                echo "Cloned"
+
             }
         } 
         stage('Building our image') { 
@@ -16,26 +18,26 @@ pipeline {
                 script { 
                     dockerImage = docker.build registry + ":$BUILD_NUMBER" 
                 }
+                echo "Image Build"
             } 
-        }
-        stage('test') {
-            steps {
-                sh 'python test.py'
-            }
         }
         stage('Deploy our image') { 
             steps { 
                 script { 
-                    docker.withRegistry( '', registryCredential ) { 
+                    docker.withRegistry( 'http://registry.hub.docker.com/', registryCredential ) { 
                         dockerImage.push() 
                     }
+                echo "Image Deployed"
                 } 
             }
         } 
+        
         stage('Cleaning up') { 
             steps { 
                 sh "docker rmi $registry:$BUILD_NUMBER" 
+                echo "Cleanup complete"
             }
         } 
+        
     }
 }
