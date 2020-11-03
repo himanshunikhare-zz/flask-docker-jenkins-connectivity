@@ -15,7 +15,7 @@ class FlaskTest(unittest.TestCase):
         tester = app.test_client(self)
         response = tester.get("/posts")
         print(response.content_type)
-        self.assertEqual(response.content_type, "text/html; charset=utf-8")
+        self.assertEqual(response.content_type, "text/html; c")
 
     
 if __name__ == "__main__":
